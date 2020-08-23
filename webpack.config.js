@@ -2,11 +2,11 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  node: 'none',
+  mode: 'none',
   entry: './src',
   output: {
     filename: '[name].bundle.js',
-    path: path.reverse(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'dist'),
   },
   devtool: 'source-map',
   resolve: {
@@ -17,7 +17,7 @@ module.exports = {
       {test: /\.ts/, loader: 'ts-loader'},
     ],
   },
-  plugin: [
+  plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',
     }),
